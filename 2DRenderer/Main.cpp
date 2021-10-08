@@ -30,10 +30,18 @@ int main(int, char**)
 
 		for (int i = 0; i < 100; i++)
 		{
-			framebuffer->DrawPoint(rand() % framebuffer->width, rand() % framebuffer->height, { 255, 255, 255, 0 });
+			framebuffer->DrawPoint(rand() % framebuffer->width, rand() % framebuffer->height, { 255, 0, 0, 0 });
 		}
 
-		framebuffer->DrawRect(-50, 50, 100, 100, { 255, 255, 255, 0 });
+		for (int i = 0; i < 100; i++)
+		{
+			framebuffer->DrawRect(rand() % framebuffer->width, rand() % framebuffer->height, 10, 10, { 0, 255, 0, 0});
+		}
+
+		for (int i = 0; i < 100; i++)
+		{
+			framebuffer->DrawLine(framebuffer->width >> 1, framebuffer->height >> 1, rand() % framebuffer->width, rand() % framebuffer->height, { 0, 0, 255, 0 });
+		}
 
 		framebuffer->Update();
 		renderer->CopyBuffer(framebuffer.get());
